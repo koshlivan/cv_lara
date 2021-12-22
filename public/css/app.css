@@ -37,6 +37,8 @@ body {
 .wraper{
     display: flex;
     box-shadow: 3px 3px 4px #bfbfbf;
+    min-height: 80vh;
+    position: relative;
 }
 
 .side-info {
@@ -50,6 +52,7 @@ body {
 
 .pr-photo {
     width: 90%;
+    min-height: 9rem;
     border-radius: 50%;
     margin: 1rem auto;
 }
@@ -81,29 +84,42 @@ body {
     margin: 0 auto;
 }
 
-.side-info>.p-info {
-    margin: 15px auto;
-    margin-bottom: 4rem;
+.p-info:nth-child(1n) {
+    min-width: 100%;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem ;
+}
+.p-info:nth-child(2n) {
+    min-width: 100%;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem ;
 }
 
-.side-info>.ul-info {
+.side-info .ul-info {
     margin: 15px auto 4rem 1rem;
 
 }
 
-.main-info {
+.mmain-info {
     display: flex;
     flex-direction: column;
-    max-width: 75%;
     float: right;
+    align-content: stretch;
+    min-width: 65%;
+    margin-left: 0;
 }
 
-.head {
-    margin: 0 1rem;
+.heading {
+    min-width: 95%;
+    max-width: 98%;
+    margin: 0 auto;
     height: 15rem;
     background-color: #323026;
     color: white;
     text-transform: capitalize;
+    text-align: center;
     display: flex;
     flex-flow: column;
     align-content: center;
@@ -218,8 +234,10 @@ body {
 #log_form label, #reg_form label {
     margin: 0 auto;
     display: inline-block;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
+    white-space: nowrap;
+    text-align: center;
 }
 
 #btnSubm {
@@ -256,4 +274,20 @@ body {
 }
 .field {
     min-height: 96px;
+
+}
+
+.message{
+    min-width: 10rem;
+    min-height: 5rem;
+    background-color: #da8787;
+    text-align: center;
+    line-height: 5rem;
+    color: red;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 3px white;
+    box-shadow: 3px 3px 4px red;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
 }
