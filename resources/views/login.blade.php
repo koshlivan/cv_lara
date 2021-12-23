@@ -26,9 +26,14 @@
         </form>
     </div>
     @if($message??null)
-    <div class="message">
+    <div class="error">
         {{$message??''}}
     </div>
+    @endif
+    @if($mess_ok??null)
+        <div class="message">
+            {{$mess_ok??''}}
+        </div>
     @endif
 </div>
 @endsection

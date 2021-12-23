@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="wraper">
+    @if($message??null)
+        <div class="alert alert-danger alert-dismissible fade show">
+            {{$message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="reg-wind">
         <form id="reg_form" action="{{url('/register')}}" method="post">
             @csrf
@@ -34,10 +40,5 @@
             </div>
         </form>
     </div>
-    @if($message??null)
-        <div class="message">
-            {{$message}}
-        </div>
-    @endif
 </div>
 @endsection

@@ -26,10 +26,11 @@ class Registre extends Controller
                     'login' => $login,
                     'password' => md5($password)
                 ]);
-                return redirect()->to('/login');
+                return redirect('/login');
+                //return view('login')->with('mess_ok', 'You have been registered successfully, please Log In');
             }
             else{
-                return view('register')->with('message','passwords doesn\'t much');
+                return view('register')->with('message','passwords doesn\'t match each other');
             }
         }
         else{

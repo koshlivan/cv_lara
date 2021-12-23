@@ -277,8 +277,8 @@ body {
 
 }
 
-.message{
-    min-width: 10rem;
+.error{
+    min-width: 15rem;
     min-height: 5rem;
     background-color: #da8787;
     text-align: center;
@@ -290,4 +290,24 @@ body {
     position: absolute;
     top: 1rem;
     left: 1rem;
+    border-radius: 1rem;
+}
+.message{
+    min-width: 15rem;
+    min-height: 5rem;
+    background-color: #79c490;
+    text-align: center;
+    line-height: 5rem;
+    color: green;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 3px white;
+    box-shadow: 3px 3px 4px green;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    border-radius: 1rem;
+}
+
+.remain-info>p{
+    text-align: justify;
 }
