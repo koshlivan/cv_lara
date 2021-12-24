@@ -14,48 +14,50 @@ class Editor extends Controller
 
     public function edition(Request $req){
         $login=session('userLogin');
-        //$path = '../storage/app/'.$this->photoPath($req);
+
         $path = $this->photoPath($req);
-        //dd($path);
-        $cv=User::where('login', 'ivan')->first();
+
+        $user=User::where('login', 'ivan')->first();
         if($req['inpPhoto']!=''){
-            $cv->photo=$path;
+            $user->photo=$path;
         }
         else{
-            $cv->photo=$cv->photo;
+            $user->photo=$user->photo;
         }
 
-        $cv->phone=$req['inpPhone'];
-        $cv->email=$req['inpMail'];
-        $cv->address=$req['inpAddr'];
-        $cv->linked=$req['inpLd'];
-        $cv->degree=$req['inpDegree'];
-        $cv->university=$req['inpUniversity'];
-        $cv->period=$req['inpPeriod'];
-        $cv->skill=$req['inpSkill'];
-        $cv->name=$req['inpName'];
-        $cv->profile=$req['inpProfile'];
-        $cv->experience=$req['inpExper'];
-
+        //only ivan can change data
         if($login=='ivan'){
+            //get info from fields
+            $user->phone=$req['inpPhone'];
+            $user->email=$req['inpMail'];
+            $user->address=$req['inpAddr'];
+            $user->linked=$req['inpLd'];
+            $user->degree=$req['inpDegree'];
+            $user->university=$req['inpUniversity'];
+            $user->period=$req['inpPeriod'];
+            $user->skill=$req['inpSkill'];
+            $user->name=$req['inpName'];
+            $user->profile=$req['inpProfile'];
+            $user->experience=$req['inpExper'];
+
+            //save photo in directory
             if($req['inpPhoto']!='') {
             $file = $req->file('inpPhoto');
             $file->move('Photo/', 'avatar.png');
             }
-            $cv->save();
+            //save info
+            $user->save();
         }
-//        else{
-//            return view('main')->with('message','You are not allowed to change data');
-//        }
-        Route::view('/, main');
-        //return view('main');
+
+        return view('main', compact('user'));
+
     }
+
+    //can return photo path if it would be dynamic
     public function photoPath(Request $request)
     {
         if($request['inpPhoto']!='') {
             //return $request->file('inpPhoto')->store('photo');
-
-
             return 'Photo/avatar.png';
         }
         else{

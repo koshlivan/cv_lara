@@ -14,9 +14,6 @@ class Filler extends Controller
             return view('main', compact('user'));
         }
         if ($request->getPathInfo() == "/") {
-//            if(session('error')!=""){
-//                return view('main', compact('user'))->with('message', session('error'));
-//            }
             return view('main', compact('user'));
         }
         if ($request->getPathInfo() == "/edit") {

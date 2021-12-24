@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\Auth;
 
 class Authoriz extends Controller
 {
-    private $userLogin;
+
     private function checkExisted($login, $password){
         $user=DB::table('users')->where('login', $login)->where('password', $password)->first();
         if($user!=null){
             return $user;
         }
     }
+
     public function getIn(Request  $request)
     {
             $login = $request['inpLog'];
@@ -29,12 +30,6 @@ class Authoriz extends Controller
             } else {
                 return view('login')->with('message', 'login or password is incorrect!');
             }
-    }
-    private function  setUserLogin($value){
-        $this->userLogin=$value;
-    }
-    public function  getUserLogin():string{
-        return $this->userLogin;
     }
 
     public function logOut(){
